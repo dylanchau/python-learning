@@ -1,4 +1,6 @@
 # Example 01
+import functools
+import itertools
 
 List = []
 print('Blank List: ', end='')
@@ -182,3 +184,15 @@ print(employee_list)
 
 
 # Built-in functions with List
+
+
+# reduce(func, seq) - is used to apply a particular function passed in its argument
+# to all of the list elements mentioned in the sequence passed along
+lis = [1, 3, 5, 6, 2, ]
+print("The sum of the list elements is : ", end="")
+print(functools.reduce(lambda a, b: a + b, lis), end="\n\n")
+print(
+    f'itertools.accumulate: {list(itertools.accumulate(lis, lambda a, b: a + b))}')
+
+print("The maximum element of the list is : ", end="")
+print(functools.reduce(lambda a, b: a if a > b else b, lis))
